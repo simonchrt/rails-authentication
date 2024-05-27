@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  def full_name
+    return "#{first_name} #{last_name}"
+  end
+
   def capitalize_email
     return email.capitalize
   end
